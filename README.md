@@ -1,4 +1,4 @@
-# YouTube Script AI Summarizer 2
+# YouTube Script AI Summarizer
 
 YouTube 동영상의 스크립트(자막)와 댓글을 AI로 자동 요약해주는 Chrome 확장 프로그램입니다.
 
