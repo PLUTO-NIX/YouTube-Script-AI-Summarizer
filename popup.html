@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Summarizer</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <div class="header">
+            <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12l2 2 4-4"/>
+                <path d="M21 12c.552 0 1-.448 1-1V5c0-.552-.448-1-1-1H3c-.552 0-1 .448-1 1v6c0 .552.448 1 1 1h18z"/>
+                <path d="M3 13v6c0 .552.448 1 1 1h16c.552 0 1-.448 1-1v-6"/>
+            </svg>
+            <h1>AI Summarizer</h1>
+        </div>
+        
+        <p class="description">
+            Summarize YouTube videos with AI-powered analysis
+        </p>
+        
+        <button id="openOptions" class="btn-primary">
+            Open Settings
+        </button>
+        
+        <div id="status" class="status-base" style="display: none;">
+            Checking API key status...
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>

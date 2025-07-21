@@ -1,0 +1,403 @@
+/* options.css - shadcn UI 스타일 */
+
+/* shadcn/ui 색상 시스템을 위한 CSS 변수 */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222.2 84% 4.9%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96%;
+  --accent-foreground: 222.2 84% 4.9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+  --radius: 0.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: hsl(var(--muted) / 0.4);
+  color: hsl(var(--foreground));
+  font-feature-settings: "rlig" 1, "calt" 1;
+  line-height: 1.5;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* 컨테이너 */
+.container {
+  max-width: 42rem;
+  margin: 0 auto;
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  padding: 2rem;
+}
+
+/* 헤더 */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: hsl(var(--primary));
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: hsl(var(--muted-foreground));
+}
+
+/* 섹션 */
+.section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: calc(var(--radius) - 2px);
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  margin-bottom: 0.5rem;
+}
+
+.section-description {
+  font-size: 0.875rem;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 1rem;
+}
+
+/* 폼 요소 */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: hsl(var(--foreground));
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid hsl(var(--input));
+  border-radius: calc(var(--radius) - 2px);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-size: 0.875rem;
+  transition: all 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
+}
+
+textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+.input-description {
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  margin-top: 0.25rem;
+}
+
+/* 버튼 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.btn-primary {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.btn-primary:hover {
+  background-color: hsl(var(--primary) / 0.9);
+}
+
+.btn-destructive {
+  background-color: hsl(var(--destructive));
+  color: hsl(var(--destructive-foreground));
+}
+
+.btn-destructive:hover {
+  background-color: hsl(var(--destructive) / 0.9);
+}
+
+.btn:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* 버튼 컨테이너 */
+.button-container {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* 상태 메시지 */
+.status {
+  font-size: 0.875rem;
+  padding: 0.75rem;
+  border-radius: calc(var(--radius) - 2px);
+  border: 1px solid;
+  margin-top: 1rem;
+}
+
+.status-success {
+  background-color: rgb(240 253 244);
+  color: rgb(21 128 61);
+  border-color: rgb(187 247 208);
+}
+
+.status-error {
+  background-color: hsl(var(--destructive) / 0.1);
+  color: hsl(var(--destructive));
+  border-color: hsl(var(--destructive) / 0.2);
+}
+
+/* 라디오 그룹 */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.radio-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.radio-item input[type="radio"] {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.125rem;
+  accent-color: hsl(var(--primary));
+}
+
+.radio-label {
+  flex: 1;
+  font-size: 0.875rem;
+  color: hsl(var(--foreground));
+  cursor: pointer;
+}
+
+.radio-description {
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  margin-top: 0.25rem;
+}
+
+/* 다크 모드 지원 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+  }
+
+  .status-success {
+    background-color: rgb(20 83 45 / 0.2);
+    color: rgb(187 247 208);
+    border-color: rgb(20 83 45 / 0.5);
+  }
+}
+
+/* YouTube API 관련 스타일 */
+.api-benefits {
+  background: hsl(var(--secondary) / 0.5) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  margin-top: 12px !important;
+  padding: 12px !important;
+  border-radius: calc(var(--radius) - 2px) !important;
+}
+
+.api-benefits h4 {
+  margin: 0 0 8px 0 !important;
+  color: hsl(var(--primary)) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+}
+
+.api-benefits ul {
+  margin: 0 !important;
+  padding-left: 20px !important;
+  font-size: 0.8rem !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+.api-benefits li {
+  margin-bottom: 2px !important;
+}
+
+/* 링크 스타일 */
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: hsl(var(--primary) / 0.8);
+  text-decoration: underline;
+}
+
+/* 다크 모드에서 API 혜택 섹션 */
+@media (prefers-color-scheme: dark) {
+  .api-benefits {
+    background: hsl(var(--secondary) / 0.3) !important;
+  }
+}
+
+/* 모델 선택 관련 스타일 */
+.ai-model-group .radio-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid hsl(var(--border));
+  border-radius: calc(var(--radius) - 2px);
+  transition: all 0.2s ease;
+  background-color: hsl(var(--background));
+}
+
+.ai-model-group .radio-item:hover {
+  background-color: hsl(var(--accent));
+  border-color: hsl(var(--accent-foreground) / 0.2);
+}
+
+.ai-model-group .radio-item input[type="radio"] {
+  margin-top: 2px;
+}
+
+.ai-model-group .radio-item input[type="radio"]:checked+div {
+  color: hsl(var(--primary));
+}
+
+.ai-model-group .radio-item input[type="radio"]:checked+div .radio-label {
+  font-weight: 600;
+}
+
+.ai-model-group .radio-item input[type="radio"]:checked~div {
+  background-color: transparent;
+}
+
+.model-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  background-color: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: normal;
+  margin-left: 8px;
+}
+
+.model-warning {
+  background-color: rgb(254 243 199);
+  border: 1px solid rgb(253 224 71);
+  border-radius: calc(var(--radius) - 2px);
+  padding: 12px;
+  margin-top: 16px;
+  color: rgb(133 77 14);
+  font-size: 0.875rem;
+}
+
+.model-warning p {
+  margin: 0;
+}
+
+/* 다크 모드에서 모델 선택 */
+@media (prefers-color-scheme: dark) {
+  .ai-model-group .radio-item {
+    background-color: hsl(var(--card));
+  }
+
+  .model-warning {
+    background-color: rgb(133 77 14 / 0.2);
+    border-color: rgb(253 224 71 / 0.3);
+    color: rgb(253 224 71);
+  }
+}
