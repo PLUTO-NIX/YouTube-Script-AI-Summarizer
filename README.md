@@ -99,10 +99,15 @@ YouTube Script AI Summarizer/
 ├── manifest.json          # 확장 프로그램 설정
 ├── background.js          # 서비스 워커 (API 호출 관리)
 ├── content.js             # 메인 로직 (YouTube 페이지 통합)
+├── new.js                # Tampermonkey 유저스크립트 (자동 스크립트 표시)
 ├── popup.html/js/css      # 팝업 UI
 ├── options.html/js/css    # 설정 페이지
 ├── style.css             # 스타일시트
 ├── images/               # 아이콘 파일들
+├── DOCS/                 # 개발 문서
+│   ├── PRD_API_Model_Selection.md
+│   ├── TRD_API_Model_Selection.md
+│   └── RELEASE_NOTES.md
 ├── README.md             # 프로젝트 문서
 ├── LICENSE              # MIT 라이선스
 └── .gitignore           # Git 제외 파일
@@ -149,6 +154,12 @@ A: 설정 페이지에서 올바른 형식의 API 키인지 확인하고, 해당
 A: YouTube Data API 키를 설정하면 훨씬 빠르게 동작합니다. DOM 기반 수집은 시간이 더 소요됩니다.
 
 ## 📝 업데이트 내역
+
+### v1.2.0 (2025-11-19)
+- ✨ Tampermonkey 유저스크립트 추가 (new.js)
+- 📁 개발 문서를 DOCS 폴더로 구조 개선
+- 🎯 YouTube 자동 스크립트 표시 기능 추가
+- 📋 더 나은 프로젝트 구조화
 
 ### v1.1.0 (2025-01-19)
 - ✨ Google Gemini 3 Pro Preview 모델 추가
