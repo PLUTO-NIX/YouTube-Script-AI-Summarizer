@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Summarizer Settings</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI Summarizer Settings</h1>
+            <p class="subtitle">Configure your AI summarization preferences</p>
+        </div>
+
+        <!-- OpenAI API Key Section -->
+        <div class="section">
+            <h2 class="section-title">OpenAI API Key</h2>
+            <p class="section-description">
+                Enter your OpenAI API key to enable AI-powered summarization. You can get your API key from the OpenAI
+                dashboard.
+            </p>
+            <div class="form-group">
+                <label for="apiKey">API Key</label>
+                <input type="password" id="apiKey" placeholder="sk-...">
+                <p class="input-description">Your API key is stored locally and never shared</p>
+            </div>
+        </div>
+
+        <!-- Google Gemini API Key Section -->
+        <div class="section">
+            <h2 class="section-title">Google Gemini API Key</h2>
+            <p class="section-description">
+                Google AI Studio에서 발급받은 API 키를 입력하세요.
+                <a href="https://makersuite.google.com/app/apikey" target="_blank" rel="noopener">
+                    API 키 발급받기
+                </a>
+            </p>
+            <div class="form-group">
+                <label for="geminiApiKey">Gemini API Key</label>
+                <input type="password" id="geminiApiKey" placeholder="AIza...">
+                <p class="input-description">
+                    Gemini 모델 사용을 위한 API 키입니다.
+                </p>
+            </div>
+        </div>
+
+        <!-- YouTube API Key Section -->
+        <div class="section">
+            <h2 class="section-title">YouTube Data API Key</h2>
+            <p class="section-description">
+                Enter your YouTube Data API key to enable comprehensive comment collection without scrolling.
+                Get your free API key from <a href="https://console.cloud.google.com/" target="_blank"
+                    rel="noopener">Google Cloud Console</a>.
+            </p>
+            <div class="form-group">
+                <label for="youtubeApiKey">YouTube API Key</label>
+                <input type="password" id="youtubeApiKey" placeholder="AIza...">
+                <p class="input-description">
+                    Free tier: 10,000 requests per day.
+                    <a href="#" id="youtubeApiHelp">📖 How to get API key</a>
+                </p>
+            </div>
+            <div class="api-benefits" style="background: #f8f9fa; padding: 12px; border-radius: 8px; margin-top: 12px;">
+                <h4 style="margin: 0 0 8px 0; color: #1976d2;">Benefits of YouTube API:</h4>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li>✅ Collect ALL comments (no scrolling required)</li>
+                    <li>✅ Include all replies to comments</li>
+                    <li>✅ Faster and more reliable collection</li>
+                    <li>✅ No interference with your browsing</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- AI Model Selection Section -->
+        <div class="section">
+            <h2 class="section-title">AI 모델 선택</h2>
+            <p class="section-description">
+                요약 생성에 사용할 AI 모델을 선택하세요.
+            </p>
+
+            <div class="radio-group ai-model-group">
+                <div class="radio-item">
+                    <input type="radio" id="openai-o4-mini" name="aiModel" value="openai-o4-mini" checked>
+                    <div>
+                        <label for="openai-o4-mini" class="radio-label">
+                            OpenAI o4-mini
+                            <span class="model-badge">기본값</span>
+                        </label>
+                        <p class="radio-description">
+                            빠르고 경제적인 모델 (OpenAI API 키 필요)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="radio-item">
+                    <input type="radio" id="gemini-2.5-pro" name="aiModel" value="gemini-2.5-pro">
+                    <div>
+                        <label for="gemini-2.5-pro" class="radio-label">
+                            Google Gemini 2.5 Pro
+                            <span class="model-badge">최신</span>
+                        </label>
+                        <p class="radio-description">
+                            최신 고성능 모델 (Gemini API 키 필요)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="radio-item">
+                    <input type="radio" id="gemini-3-pro-preview" name="aiModel" value="gemini-3-pro-preview">
+                    <div>
+                        <label for="gemini-3-pro-preview" class="radio-label">
+                            Google Gemini 3 Pro Preview
+                            <span class="model-badge">최신 프리뷰</span>
+                        </label>
+                        <p class="radio-description">
+                            최신 프리뷰 버전 (Gemini API 키 필요)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="model-warning" id="modelWarning" style="display: none;">
+                <p>⚠️ 선택한 모델을 사용하려면 해당 API 키가 필요합니다.</p>
+            </div>
+        </div>
+
+        <!-- Summary Prompt Settings Section -->
+        <div class="section">
+            <h2 class="section-title">Summary Prompt Settings</h2>
+            <p class="section-description">
+                Customize how the AI summarizes YouTube video content. Choose between the default prompt or create your
+                own.
+            </p>
+
+            <div class="radio-group">
+                <div class="radio-item">
+                    <input type="radio" id="defaultPrompt" name="promptType" value="default" checked>
+                    <div>
+                        <label for="defaultPrompt" class="radio-label">Use Default Prompt</label>
+                        <p class="radio-description">Uses the built-in optimized prompt for YouTube video summarization
+                        </p>
+                    </div>
+                </div>
+
+                <div class="radio-item">
+                    <input type="radio" id="customPrompt" name="promptType" value="custom">
+                    <div>
+                        <label for="customPrompt" class="radio-label">Custom Prompt</label>
+                        <p class="radio-description">Create your own prompt for personalized summarization style</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" id="customPromptGroup" style="display: none;">
+                <label for="userPrompt">Custom Prompt for Video Script</label>
+                <textarea id="userPrompt"
+                    placeholder="Enter your custom prompt for summarizing YouTube videos..."></textarea>
+                <p class="input-description">Leave empty to use the default prompt</p>
+            </div>
+        </div>
+
+        <!-- Comments Prompt Settings Section -->
+        <div class="section">
+            <h2 class="section-title">Comments Summary Prompt Settings</h2>
+            <p class="section-description">
+                Customize how the AI analyzes and summarizes YouTube comments. This setting is independent of the video
+                summary prompt.
+            </p>
+
+            <div class="form-group">
+                <label for="commentsPrompt">Comments Analysis Prompt</label>
+                <textarea id="commentsPrompt"
+                    placeholder="Enter your custom prompt for analyzing YouTube comments..."></textarea>
+                <p class="input-description">Leave empty to use the default comments analysis prompt</p>
+            </div>
+        </div>
+
+        <!-- Saved Summary Management Section -->
+        <div class="section">
+            <h2 class="section-title">Saved Summary Management</h2>
+            <p class="section-description">
+                Manage your saved video summaries and clear storage if needed.
+            </p>
+            <button id="clearSummaries" class="btn btn-destructive">
+                Delete All Saved Summaries
+            </button>
+        </div>
+
+        <!-- Save Button -->
+        <div class="button-container">
+            <button id="saveSettings" class="btn btn-primary">Save Settings</button>
+        </div>
+
+        <div id="status" style="display: none;"></div>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+
+</html>
